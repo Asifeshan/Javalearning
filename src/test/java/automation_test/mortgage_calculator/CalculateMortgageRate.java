@@ -236,19 +236,8 @@ public class CalculateMortgageRate {
 
 
 
-import command_providers.ActOn;
-import command_providers.AssertThat;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import page_object.Home;
-import page_object.NavigationBar;
-import utilities.DateUtils;
+
 
 /**
 public class CalculateMortgageRate {
@@ -401,24 +390,26 @@ public class CalculateMortgageRate {
     }
 }
 **/
+import org.testng.annotations.Test;
+import page_object.NavigationBar;
+import utilities.DateUtils;
+import utilities.RetryFailedTests;
 
-public class CalculateMortgageRate {
+public class CalculateMortgageRate extends BaseClassUITest {
+                                        //    WebDriver driver;
+                                        //
+                                        //
+                                        //    @BeforeMethod
+                                        //
+                                        //    public void openBrowser() {
+                                        //        WebDriverManager.chromedriver().setup();
+                                        //        driver= new ChromeDriver();
+                                        //    ActOn.browser(driver).openBrowser("https://www.mortgagecalculator.org/");
+                                        //
+                                        //
+                                        //    }
 
-
-    WebDriver driver;
-
-
-    @BeforeMethod
-
-    public void openBrowser() {
-        WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
-        ActOn.browser(driver).openBrowser("https://www.mortgagecalculator.org/");
-
-
-    }
-
-    @Test
+    @Test(retryAnalyzer = RetryFailedTests.class)  // as we created Retry failed test at utilities
     public void calculateMonthlyPayment() {
         String date = DateUtils.returnNextMonth();// as it returns moth and date i will use split to get both seperatly
         String[] dates = date.split("-");
@@ -446,10 +437,10 @@ public class CalculateMortgageRate {
 
     }
 
-    @AfterMethod
-    public void quitBrowser() {
-        //  driver.quit();
-        ActOn.browser(driver).close();
-    }
+                                                                                //    @AfterMethod
+                                                                                //    public void quitBrowser() {
+                                                                                //        //  driver.quit();
+                                                                                //        ActOn.browser(driver).close();
+                                                                                //  } // As I declared them in baseclass
 }
 

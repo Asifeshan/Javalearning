@@ -20,7 +20,7 @@ public class LoadConfigFiles {
             if (inputStream != null) {
                 prop.load(inputStream);
             } else {
-                throw new FileNotFoundException("property Flie " + propFileName + " not found in the classpath");
+                throw new FileNotFoundException("property File " + propFileName + " not found in the classpath");
             }
             } catch (Exception e) {
             LOGGER.error("Exception: " + e.getMessage());
