@@ -2,9 +2,10 @@
 
 <suite name="Test_Automation" verbose="1" >
 
-    <test name="api_test" >
-        <packages>
-            <package name="api_test"/>
-        </packages>
+    <test name="selenium_grid" >
+        <classes>
+            <class name="automation_test.mortgage_calculator.CalculateMortgageRate"/>
+            <class name="automation_test.mortgage_calculator.calculateRealAprRate"/>
+        </classes>
     </test>
 </suite>
